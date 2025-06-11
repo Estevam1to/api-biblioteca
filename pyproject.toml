@@ -1,0 +1,17 @@
+[project]
+name = "api-biblioteca"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "alembic==1.12.1",
+    "fastapi==0.104.1",
+    "psycopg2-binary==2.9.9",
+    "pydantic==2.5.0",
+    "pydantic-settings>=2.2.1",
+    "python-dotenv==1.0.0",
+    "python-multipart==0.0.6",
+    "sqlmodel==0.0.14",
+    "uvicorn==0.24.0",
+]
