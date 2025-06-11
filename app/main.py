@@ -3,8 +3,8 @@ from contextlib import asynccontextmanager
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 
-from app.config.database import create_db_and_tables
-from app.config.logging_config import setup_logging
+from config.database import create_db_and_tables
+from config.logging_config import setup_logging
 from routers import autores, editoras, emprestimos, livros, usuarios
 
 # Configurar logging

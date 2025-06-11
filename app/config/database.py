@@ -2,9 +2,9 @@ import logging
 
 from sqlmodel import Session, SQLModel, create_engine
 
-from app.config.config import settings
+from config.config import settings
 
-logger = logging.getLogger(__name__)
+logger = logging.getLogger("uvicorn")
 
 engine = create_engine(
     settings.database_url,

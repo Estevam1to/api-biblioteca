@@ -3,7 +3,7 @@ from typing import List
 from sqlmodel import Session, select
 
 from crud.base import CRUDBase
-from app.domain.models import Autor, AutorCreate, AutorUpdate
+from domain.models import Autor, AutorCreate, AutorUpdate
 
 
 class CRUDAutor(CRUDBase[Autor, AutorCreate, AutorUpdate]):

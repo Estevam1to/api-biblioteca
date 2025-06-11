@@ -3,7 +3,7 @@ from typing import List
 from sqlmodel import Session, select
 
 from crud.base import CRUDBase
-from app.domain.models import Editora, EditoraCreate, EditoraUpdate
+from domain.models import Editora, EditoraCreate, EditoraUpdate
 
 
 class CRUDEditora(CRUDBase[Editora, EditoraCreate, EditoraUpdate]):

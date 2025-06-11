@@ -3,9 +3,9 @@ from typing import List, Optional
 from crud.autores_crud import crud_autor
 from crud.editoras_crud import crud_editora
 from crud.livros_crud import crud_livro
-from app.config.database import get_session
+from config.database import get_session
 from fastapi import APIRouter, Depends, HTTPException, Query
-from app.domain.models import LivroCreate, LivroRead, LivroUpdate
+from domain.models import LivroCreate, LivroRead, LivroUpdate
 from sqlmodel import Session
 
 router = APIRouter(prefix="/livros", tags=["livros"])

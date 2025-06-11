@@ -4,8 +4,8 @@ from fastapi import APIRouter, Depends, HTTPException, Query
 from sqlmodel import Session
 
 from crud.editoras_crud import crud_editora
-from app.config.database import get_session
-from app.domain.models import EditoraCreate, EditoraRead, EditoraUpdate
+from config.database import get_session
+from domain.models import EditoraCreate, EditoraRead, EditoraUpdate
 
 router = APIRouter(prefix="/editoras", tags=["editoras"])
 
