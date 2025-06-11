@@ -53,3 +53,12 @@ python run.py
 - Agregações e contagens
 - Ordenações
 - Consultas complexas com múltiplas entidades
+
+## Equipe
+
+Projeto desenvolvido por:
+
+- **Luís Estevam**: Endpoints de autores e editoras, sistema de paginação e filtros, configuração do Alembic e estruturação do repositório.
+- **Luis Fernando**: Endpoints e lógica de empréstimos, sistema de relacionamentos N:N, validações de negócio e sistema de logs.
+
+> **Nota**: O repositório contém commits principalmente de um integrante pois ele foi responsável pela estruturação do código. O desenvolvimento foi realizado em conjunto utilizando compartilhamento de arquivos.
