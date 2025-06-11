@@ -7,7 +7,7 @@ from config.config import settings
 logger = logging.getLogger("uvicorn")
 
 engine = create_engine(
-    settings.database_url,
+    settings.DATABASE_URL,
     echo=False,
     pool_pre_ping=True
 )
