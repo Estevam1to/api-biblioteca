@@ -63,6 +63,26 @@ class CRUDEmprestimo(CRUDBase[Emprestimo, EmprestimoCreate, EmprestimoUpdate]):
         )
         return db.exec(statement).all()
 
+    def get_with_livros(self, db: Session, emprestimo_id: int) -> Emprestimo:
+        """Buscar empréstimo com livros associados"""
+        statement = select(Emprestimo).where(Emprestimo.id == emprestimo_id)
+        emprestimo = db.exec(statement).first()
+        if emprestimo:
+            # Força o carregamento dos livros relacionados
+            _ = emprestimo.livros
+        return emprestimo
+
+    def get_all_with_livros(
+        self, db: Session, skip: int = 0, limit: int = 100
+    ) -> List[Emprestimo]:
+        """Listar empréstimos com livros associados"""
+        statement = select(Emprestimo).offset(skip).limit(limit)
+        emprestimos = db.exec(statement).all()
+        # Força o carregamento dos livros para cada empréstimo
+        for emprestimo in emprestimos:
+            _ = emprestimo.livros
+        return emprestimos
+
 
 # Instância do CRUD
 crud_emprestimo = CRUDEmprestimo(Emprestimo)

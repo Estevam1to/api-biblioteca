@@ -179,6 +179,9 @@ class EmprestimoRead(EmprestimoBase):
     status: StatusEmprestimo
     usuario_id: int
 
+class EmprestimoReadWithLivros(EmprestimoRead):
+    livros: List[LivroRead] = []
+
 class EmprestimoUpdate(SQLModel):
     data_devolucao_prevista: Optional[datetime] = None
     data_devolucao_real: Optional[datetime] = None

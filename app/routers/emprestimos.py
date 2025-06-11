@@ -9,6 +9,7 @@ from fastapi import APIRouter, Depends, HTTPException, Query
 from domain.models import (
     EmprestimoCreate,
     EmprestimoRead,
+    EmprestimoReadWithLivros,
     EmprestimoUpdate,
     StatusEmprestimo,
 )
@@ -61,6 +62,26 @@ def contar_emprestimos(db: Session = Depends(get_session)):
     """Contar total de empréstimos"""
     count = crud_emprestimo.count(db=db)
     return {"quantidade": count}
+
+
+@router.get("/with-livros", response_model=List[EmprestimoReadWithLivros])
+def listar_emprestimos_com_livros(
+    skip: int = Query(0, ge=0),
+    limit: int = Query(100, ge=1, le=1000),
+    db: Session = Depends(get_session),
+):
+    """Listar empréstimos com seus livros associados"""
+    emprestimos = crud_emprestimo.get_all_with_livros(db=db, skip=skip, limit=limit)
+    return emprestimos
+
+
+@router.get("/{emprestimo_id}/with-livros", response_model=EmprestimoReadWithLivros)
+def buscar_emprestimo_com_livros(emprestimo_id: int, db: Session = Depends(get_session)):
+    """Buscar empréstimo específico com seus livros associados"""
+    emprestimo = crud_emprestimo.get_with_livros(db=db, emprestimo_id=emprestimo_id)
+    if not emprestimo:
+        raise HTTPException(status_code=404, detail="Empréstimo não encontrado")
+    return emprestimo
 
 
 @router.get("/{emprestimo_id}", response_model=EmprestimoRead)
