@@ -1,6 +1,8 @@
-from sqlmodel import SQLModel, create_engine, Session
-from app.config import settings
 import logging
+
+from sqlmodel import Session, SQLModel, create_engine
+
+from app.config.config import settings
 
 logger = logging.getLogger(__name__)
 

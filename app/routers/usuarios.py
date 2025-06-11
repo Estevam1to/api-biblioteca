@@ -1,11 +1,10 @@
 from typing import List
 
+from crud.usuarios_crud import crud_usuario
+from app.config.database import get_session
 from fastapi import APIRouter, Depends, HTTPException, Query
+from app.domain.models import UsuarioCreate, UsuarioRead, UsuarioUpdate
 from sqlmodel import Session
-
-from app.crud import crud_usuario
-from app.database import get_session
-from app.models import UsuarioCreate, UsuarioRead, UsuarioUpdate
 
 router = APIRouter(prefix="/usuarios", tags=["usuarios"])
 

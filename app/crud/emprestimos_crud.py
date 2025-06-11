@@ -3,9 +3,9 @@ from typing import List
 
 from sqlmodel import Session, and_, select
 
-from app.crud.base import CRUDBase
-from app.logging_config import log_operation
-from app.models import (
+from crud.base import CRUDBase
+from app.config.logging_config import log_operation
+from app.domain.models import (
     Emprestimo,
     EmprestimoCreate,
     EmprestimoUpdate,

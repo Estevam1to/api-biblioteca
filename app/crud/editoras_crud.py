@@ -2,8 +2,8 @@ from typing import List
 
 from sqlmodel import Session, select
 
-from app.crud.base import CRUDBase
-from app.models import Editora, EditoraCreate, EditoraUpdate
+from crud.base import CRUDBase
+from app.domain.models import Editora, EditoraCreate, EditoraUpdate
 
 
 class CRUDEditora(CRUDBase[Editora, EditoraCreate, EditoraUpdate]):

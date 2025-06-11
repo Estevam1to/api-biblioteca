@@ -2,8 +2,8 @@ from typing import List, Optional
 
 from sqlmodel import Session, select
 
-from app.crud.base import CRUDBase
-from app.models import Usuario, UsuarioCreate, UsuarioUpdate
+from crud.base import CRUDBase
+from app.domain.models import Usuario, UsuarioCreate, UsuarioUpdate
 
 
 class CRUDUsuario(CRUDBase[Usuario, UsuarioCreate, UsuarioUpdate]):

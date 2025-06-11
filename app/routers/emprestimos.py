@@ -1,17 +1,18 @@
 from datetime import datetime
 from typing import List, Optional
 
+from crud.emprestimos_crud import crud_emprestimo
+from crud.livros_crud import crud_livro
+from crud.usuarios_crud import crud_usuario
+from app.config.database import get_session
 from fastapi import APIRouter, Depends, HTTPException, Query
-from sqlmodel import Session
-
-from app.crud import crud_emprestimo, crud_livro, crud_usuario
-from app.database import get_session
-from app.models import (
+from app.domain.models import (
     EmprestimoCreate,
     EmprestimoRead,
     EmprestimoUpdate,
     StatusEmprestimo,
 )
+from sqlmodel import Session
 
 router = APIRouter(prefix="/emprestimos", tags=["emprestimos"])
 

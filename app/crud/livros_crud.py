@@ -2,8 +2,8 @@ from typing import List
 
 from sqlmodel import Session, and_, select
 
-from app.crud.base import CRUDBase
-from app.models import Livro, LivroCreate, LivroUpdate
+from crud.base import CRUDBase
+from app.domain.models import Livro, LivroCreate, LivroUpdate
 
 
 class CRUDLivro(CRUDBase[Livro, LivroCreate, LivroUpdate]):

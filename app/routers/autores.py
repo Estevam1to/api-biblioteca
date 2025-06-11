@@ -3,9 +3,9 @@ from typing import List, Optional
 from fastapi import APIRouter, Depends, HTTPException, Query
 from sqlmodel import Session
 
-from app.crud import crud_autor
-from app.database import get_session
-from app.models import AutorCreate, AutorRead, AutorUpdate
+from crud.autores_crud import crud_autor
+from app.config.database import get_session
+from app.domain.models import AutorCreate, AutorRead, AutorUpdate
 
 router = APIRouter(prefix="/autores", tags=["autores"])
 

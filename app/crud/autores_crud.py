@@ -2,8 +2,8 @@ from typing import List
 
 from sqlmodel import Session, select
 
-from app.crud.base import CRUDBase
-from app.models import Autor, AutorCreate, AutorUpdate
+from crud.base import CRUDBase
+from app.domain.models import Autor, AutorCreate, AutorUpdate
 
 
 class CRUDAutor(CRUDBase[Autor, AutorCreate, AutorUpdate]):

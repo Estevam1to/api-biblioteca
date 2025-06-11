@@ -3,7 +3,6 @@ from typing import Optional, List
 from datetime import datetime
 from enum import Enum
 
-# Tabela de associação para relacionamento N:N entre Livro e Empréstimo
 class LivroEmprestimoLink(SQLModel, table=True):
     __tablename__ = "livro_emprestimo"
     
@@ -16,7 +15,6 @@ class StatusEmprestimo(str, Enum):
     DEVOLVIDO = "devolvido"
     ATRASADO = "atrasado"
 
-# Modelo Autor
 class AutorBase(SQLModel):
     nome: str = Field(min_length=2, max_length=100)
     nacionalidade: str = Field(max_length=50)
@@ -45,7 +43,6 @@ class AutorUpdate(SQLModel):
     biografia: Optional[str] = None
     email: Optional[str] = None
 
-# Modelo Editora
 class EditoraBase(SQLModel):
     nome: str = Field(min_length=2, max_length=100)
     endereco: str = Field(max_length=200)

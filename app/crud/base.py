@@ -3,8 +3,8 @@ from typing import Generic, List, Optional, Type, TypeVar
 
 from sqlmodel import Session, func, select
 
-from app.logging_config import log_operation
-from app.models import SQLModel
+from app.config.logging_config import log_operation
+from app.domain.models import SQLModel
 
 logger = logging.getLogger(__name__)
 
