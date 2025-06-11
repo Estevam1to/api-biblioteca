@@ -7,14 +7,12 @@ from config.database import create_db_and_tables
 from config.logging_config import setup_logging
 from routers import autores, editoras, emprestimos, livros, usuarios
 
-# Configurar logging
 logger = setup_logging()
 
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     """Gerenciar ciclo de vida da aplicação"""
-    # Startup
     try:
         create_db_and_tables()
         logger.info("Aplicação iniciada com sucesso")
@@ -24,7 +22,6 @@ async def lifespan(app: FastAPI):
     
     yield
     
-    # Shutdown
     logger.info("Aplicação finalizada")
 
 
@@ -52,7 +49,6 @@ app.include_router(usuarios.router)
 app.include_router(emprestimos.router)
 
 
-# Handler global para exceções
 @app.exception_handler(Exception)
 async def global_exception_handler(request, exc):
     logger.error(f"Erro não tratado: {exc}")
